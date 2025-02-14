@@ -13,6 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Link from "next/link";
+import { departments } from "@/constant";
 
 const Hero = () => {
   return (
@@ -51,16 +52,15 @@ const Hero = () => {
               </DialogTitle>
             </DialogHeader>
             <div className="flex flex-col gap-2">
-              {/* {inTouch.map((service, index) => (
+              {departments.map((department, index) => (
                 <Link
                   key={index}
-                  href={service.url}
+                  href={department.url}
                   className="text-base relative flex items-center justify-between uppercase tracking-wide overlay-intouch_link"
                 >
-                  {service.name}{" "}
-                
+                  {department.name} subject
                 </Link>
-              ))} */}
+              ))}
             </div>
           </DialogContent>
         </Dialog>
