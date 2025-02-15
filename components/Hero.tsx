@@ -2,15 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "motion/react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import Link from "next/link";
-import { departments } from "@/constant";
+
+import CtaBtn from "./CtaBtn";
 
 const Hero = () => {
   return (
@@ -29,7 +22,10 @@ const Hero = () => {
           your skills with LearnlyApp&apos;s immersive gamified learning
           experience.
         </p>
-        <Dialog>
+        <div className="mt-8">
+          <CtaBtn />
+        </div>
+        {/* <Dialog>
           <DialogTrigger asChild>
             <button className="relative intouch-btn max-sm:text-sm text-white max-sm:w-32 max-sm:h-9 w-48 h-11 capitalize bg-transparent border border-purple-700 hover:text-black rounded-lg mt-8">
               start leaning
@@ -60,7 +56,7 @@ const Hero = () => {
               ))}
             </div>
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: 100 }}
