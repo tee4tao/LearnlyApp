@@ -1,4 +1,5 @@
 import { ResultsProps } from "@/types";
+import { IoCloseCircle, IoCheckmarkCircle } from "react-icons/io5";
 
 export const Results: React.FC<ResultsProps> = ({
   sectionAData,
@@ -42,9 +43,14 @@ export const Results: React.FC<ResultsProps> = ({
         {sectionAData.map((q) => (
           <div key={q.id} className="border rounded p-3">
             <p className="font-semibold">{q.question}</p>
-            <p>
+            <p className="flex items-center gap-1">
               <strong>Your Answer:</strong>{" "}
               {multipleChoiceAnswers[q.id] || "Not answered"}
+              {multipleChoiceAnswers[q.id] === q.correctAnswer ? (
+                <IoCheckmarkCircle className="text-green-600 text-xl" />
+              ) : (
+                <IoCloseCircle className="text-red-600 text-xl" />
+              )}
             </p>
             <p>
               <strong>Correct Answer:</strong> {q.correctAnswer}
@@ -55,11 +61,17 @@ export const Results: React.FC<ResultsProps> = ({
         {sectionBData.map((q) => (
           <div key={q.id} className="border rounded p-3">
             <p className="font-semibold">{q.question}</p>
-            <p>
+            <p className="flex items-center gap-1">
               <strong>Your Items:</strong>{" "}
               {dragAnswers[q.id] && dragAnswers[q.id].length > 0
                 ? dragAnswers[q.id].join(", ")
-                : "None"}
+                : "None"}{" "}
+              {JSON.stringify(dragAnswers[q.id]) ===
+              JSON.stringify(q.correctAnswers) ? (
+                <IoCheckmarkCircle className="text-green-600 text-xl" />
+              ) : (
+                <IoCloseCircle className="text-red-600 text-xl" />
+              )}
             </p>
             <p>
               <strong>Correct Items:</strong> {q.correctAnswers.join(", ")}
