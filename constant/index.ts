@@ -1,7 +1,7 @@
 export const departments = [
   {
     name: "general",
-    url: "/general",
+    url: "/quiz",
   },
   {
     name: "science",
