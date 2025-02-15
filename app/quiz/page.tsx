@@ -76,38 +76,6 @@ function saveQuizStateToLocalStorage(state: QuizState) {
   }
 }
 
-/** ---------------------------
- *  IntroA Component (Section A Instructions)
- * ----------------------------
- */
-<IntroA
-  onStart={function (): void {
-    throw new Error("Function not implemented.");
-  }}
-/>;
-
-/** ---------------------------
- *  SectionA Component (Multiple-Choice)
- * ----------------------------
- */
-<>
-  <SectionA />
-
-  {/* IntroA Component (Section A Instructions) */}
-  <IntroB
-    onStart={function (): void {
-      throw new Error("Function not implemented.");
-    }}
-  />
-</>;
-
-<>
-  {/* SectionB Component (Drag-and-Drop) */}
-  <SectionB />
-
-  <Results />
-</>;
-
 const QuizPage: React.FC = () => {
   const [quizState, setQuizState] = useState<QuizState>(() =>
     loadQuizStateFromLocalStorage()

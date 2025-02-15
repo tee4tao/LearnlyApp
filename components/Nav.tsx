@@ -3,8 +3,12 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import CtaBtn from "./CtaBtn";
+// import { usePathname } from "next/navigation";
 
 const Nav = () => {
+  // const pathname = usePathname();
+  // console.log(pathname);
+
   useEffect(() => {
     const updateNavbarHeight = () => {
       const navbar = document.getElementById("navbar");
