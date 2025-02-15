@@ -4,10 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -24,7 +21,7 @@ const Hero = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-10 lg:max-w-[35rem] lg:mb-0"
       >
-        <h2 className=" text-3xl lg:text-5xl font-semibold mb-2">
+        <h2 className="text-xl md:text-3xl lg:text-5xl font-semibold mb-2">
           The <span className="text-purple-700">Most Fun</span> Way To Learn
         </h2>
         <p className="[word-spacing:2px] text-[#6e6e6e]">
@@ -34,12 +31,12 @@ const Hero = () => {
         </p>
         <Dialog>
           <DialogTrigger asChild>
-            <button className="relative intouch-btn text-white w-48 h-11 capitalize bg-transparent border border-purple-700 hover:text-black rounded-lg mt-8">
+            <button className="relative intouch-btn max-sm:text-sm text-white max-sm:w-32 max-sm:h-9 w-48 h-11 capitalize bg-transparent border border-purple-700 hover:text-black rounded-lg mt-8">
               start leaning
             </button>
           </DialogTrigger>
           <DialogContent
-            className="  text-foreground flex flex-col text-center h-80 w-[90%] md:w-[40rem] px-8"
+            className="  text-white flex flex-col text-center h-80 w-[90%] md:w-[40rem] px-8"
             style={{
               backgroundImage: "url('/images/popup-background.png')",
               backgroundSize: "cover",
@@ -47,7 +44,7 @@ const Hero = () => {
             }}
           >
             <DialogHeader>
-              <DialogTitle className="text-center mb-8 text-3xl mt-4 tracking-wide">
+              <DialogTitle className="text-center mb-8 text-xl md:text-3xl mt-4 tracking-wide">
                 What Subject Would You Like To Do?
               </DialogTitle>
             </DialogHeader>
@@ -64,9 +61,6 @@ const Hero = () => {
             </div>
           </DialogContent>
         </Dialog>
-        {/* <button className="relative intouch-btn text-white w-48 h-11 capitalize bg-transparent border hover:text-black rounded-lg mt-8">
-          start leaning
-        </button> */}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: 100 }}

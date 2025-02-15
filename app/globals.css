@@ -27,7 +27,20 @@ body {
 .intouch-btn:hover::before {
   width: 0;
 }
-@layer base {
+.overlay-intouch_link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 85%;
+  width: 24px;
+  height: 24px;
+  background-image: url(../public/icons/arrow-modal.svg);
+  transition: 300ms ease-in-out;
+}
+.overlay-intouch_link:hover::after {
+  left: 90%;
+}
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -89,4 +102,4 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

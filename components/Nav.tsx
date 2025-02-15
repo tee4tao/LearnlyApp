@@ -37,7 +37,7 @@ const Nav = () => {
           width={30}
           height={30}
         />
-        <button className="bg-purple-700 text-white p-2 px-4 capitalize rounded-lg font-semibold text-nowrap hover:scale-90 transition-all duration-300">
+        <button className="bg-purple-700 text-white p-2 px-4 capitalize rounded-lg font-semibold text-nowrap hover:scale-90 transition-all duration-300 max-sm:text-sm max-sm:w-32 max-sm:h-9">
           start leaning
         </button>
       </div>
