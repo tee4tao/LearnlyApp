@@ -8,8 +8,10 @@ import {
 } from "@/components/ui/dialog";
 import { departments } from "@/constant";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const CtaBtn = () => {
+  const router = useRouter();
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -32,13 +34,14 @@ const CtaBtn = () => {
         </DialogHeader>
         <div className="flex flex-col gap-2">
           {departments.map((department, index) => (
-            <Link
+            <div
               key={index}
-              href={department.url}
-              className="text-base relative flex items-center justify-between uppercase tracking-wide overlay-intouch_link"
+              // href={department.url}
+              className="text-base relative flex items-center justify-between uppercase tracking-wide overlay-intouch_link cursor-pointer"
+              onClick={() => router.push(`/quiz/${department.url}`)}
             >
               {department.name} subject
-            </Link>
+            </div>
           ))}
         </div>
       </DialogContent>
