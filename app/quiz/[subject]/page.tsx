@@ -51,7 +51,7 @@ const sectionBData: DragAndDropQuestion[] = [
  * ----------------------------
  */
 
-const Page = ({ params }) => {
+const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
   const { subject } = use(params);
   function loadQuizStateFromLocalStorage(): QuizState {
     if (typeof window !== "undefined") {
