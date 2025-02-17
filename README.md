@@ -1,6 +1,6 @@
 # Learnly Quiz Application
 
-This is a **Two-Section Quiz Application** built using **Next.js**, **TypeScript**, and **Tailwind CSS**. The application challenges users with two different types of quiz sections:
+This is a **Quiz Application** built using **Next.js**, **TypeScript**, and **Tailwind CSS**. The application challenges users with two different types of quiz sections:
 
 - **Section A**: Multiple-choice questions with a 30-second timer and immediate feedback.
 - **Section B**: Drag-and-drop questions where users can add or remove items within a 30-second window.
