@@ -25,38 +25,6 @@ const Hero = () => {
         <div className="mt-8">
           <CtaBtn />
         </div>
-        {/* <Dialog>
-          <DialogTrigger asChild>
-            <button className="relative intouch-btn max-sm:text-sm text-white max-sm:w-32 max-sm:h-9 w-48 h-11 capitalize bg-transparent border border-purple-700 hover:text-black rounded-lg mt-8">
-              start leaning
-            </button>
-          </DialogTrigger>
-          <DialogContent
-            className="  text-white flex flex-col text-center h-80 w-[90%] md:w-[40rem] px-8"
-            style={{
-              backgroundImage: "url('/images/popup-background.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <DialogHeader>
-              <DialogTitle className="text-center mb-8 text-xl md:text-3xl mt-4 tracking-wide">
-                What Subject Would You Like To Do?
-              </DialogTitle>
-            </DialogHeader>
-            <div className="flex flex-col gap-2">
-              {departments.map((department, index) => (
-                <Link
-                  key={index}
-                  href={department.url}
-                  className="text-base relative flex items-center justify-between uppercase tracking-wide overlay-intouch_link"
-                >
-                  {department.name} subject
-                </Link>
-              ))}
-            </div>
-          </DialogContent>
-        </Dialog> */}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: 100 }}

@@ -11,6 +11,20 @@ import {
   MultipleChoiceQuestion,
   QuizState,
 } from "@/types";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
+import { IoArrowBackCircleSharp } from "react-icons/io5";
 
 const sectionAData: MultipleChoiceQuestion[] = [
   {
@@ -53,6 +67,7 @@ const sectionBData: DragAndDropQuestion[] = [
 
 const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
   const { subject } = use(params);
+  const router = useRouter();
   function loadQuizStateFromLocalStorage(): QuizState {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem(`quizState_v2_${subject}`);
@@ -249,7 +264,50 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
   };
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
-      <h1 className="text-3xl font-bold mb-6 capitalize">{subject} Quiz</h1>
+      <div className="w-full max-w-xl flex justify-between mb-6 max-sm:px-2">
+        {/* <div className="text-start"> */}
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            {/* <Button variant="outline" className="">
+              Show Dialog
+            </Button> */}
+            <IoArrowBackCircleSharp className="text-purple-800 text-3xl cursor-pointer" />
+          </AlertDialogTrigger>
+          <AlertDialogContent
+            className="  text-white flex flex-col text-center  w-[90%] md:w-[40rem] px-8"
+            style={{
+              backgroundImage: "url('/images/popup-background.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Are you want to quit the quiz?
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete your
+                progress.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={() => {
+                  localStorage.removeItem(`quizState_v2_${subject}`);
+                  router.push("/");
+                }}
+              >
+                Continue
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+        {/* </div> */}
+        <h1 className="text-xl md:text-3xl  font-semibold  capitalize">
+          {subject} Quiz
+        </h1>
+      </div>
       {view === "introA" && <IntroA onStart={startSectionA} />}
       {view === "sectionA" && (
         <SectionA
