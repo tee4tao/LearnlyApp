@@ -22,9 +22,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
+import { motion } from "motion/react";
 
 const sectionAData: MultipleChoiceQuestion[] = [
   {
@@ -265,13 +265,15 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
       <div className="w-full max-w-xl flex justify-between mb-6 max-sm:px-2">
-        {/* <div className="text-start"> */}
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            {/* <Button variant="outline" className="">
-              Show Dialog
-            </Button> */}
-            <IoArrowBackCircleSharp className="text-purple-800 text-3xl cursor-pointer" />
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <IoArrowBackCircleSharp className="text-purple-800 text-3xl cursor-pointer" />
+            </motion.div>
           </AlertDialogTrigger>
           <AlertDialogContent
             className="  text-white flex flex-col text-center  w-[90%] md:w-[40rem] px-8"
@@ -302,9 +304,14 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
           </AlertDialogContent>
         </AlertDialog>
         {/* </div> */}
-        <h1 className="text-xl md:text-3xl  font-semibold  capitalize">
+        <motion.h1
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-xl md:text-3xl  font-semibold  capitalize"
+        >
           {subject} Quiz
-        </h1>
+        </motion.h1>
       </div>
       {view === "introA" && <IntroA onStart={startSectionA} />}
       {view === "sectionA" && (

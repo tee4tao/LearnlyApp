@@ -33,8 +33,9 @@ export const Results: React.FC<ResultsProps> = ({
   const score = calculateScore();
 
   function haveSameItems(arr1: string[], arr2: string[]) {
-    if (arr1.length !== arr2.length) return false;
+    if (!arr1) return false;
 
+    if (arr1.length !== arr2.length) return false;
     // Step 2: Sort copies of both arrays (so we don't mutate the originals)
     const sortedArr1 = [...arr1].sort();
     const sortedArr2 = [...arr2].sort();
@@ -98,7 +99,7 @@ export const Results: React.FC<ResultsProps> = ({
       <div className="mt-6 flex justify-end">
         <button
           onClick={onRestart}
-          className="bg-gray-600 text-white px-4 py-2 rounded"
+          className="bg-purple-700 text-white px-4 py-2 rounded"
         >
           Restart Quiz
         </button>
