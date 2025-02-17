@@ -282,9 +282,7 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
             }}
           >
             <AlertDialogHeader>
-              <AlertDialogTitle>
-                Are you want to quit the quiz?
-              </AlertDialogTitle>
+              <AlertDialogTitle>Do you want to quit the quiz?</AlertDialogTitle>
               <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
                 progress.
