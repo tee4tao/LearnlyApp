@@ -32,6 +32,23 @@ export const Results: React.FC<ResultsProps> = ({
   const totalQuestions = sectionAData.length + sectionBData.length;
   const score = calculateScore();
 
+  function haveSameItems(arr1: string[], arr2: string[]) {
+    if (arr1.length !== arr2.length) return false;
+
+    // Step 2: Sort copies of both arrays (so we don't mutate the originals)
+    const sortedArr1 = [...arr1].sort();
+    const sortedArr2 = [...arr2].sort();
+
+    // Step 3: Compare each item
+    for (let i = 0; i < sortedArr1.length; i++) {
+      if (sortedArr1[i] !== sortedArr2[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   return (
     <div className="max-w-xl w-full bg-white p-6 rounded shadow">
       <h2 className="text-2xl font-bold mb-4">Quiz Results</h2>
@@ -66,8 +83,7 @@ export const Results: React.FC<ResultsProps> = ({
               {dragAnswers[q.id] && dragAnswers[q.id].length > 0
                 ? dragAnswers[q.id].join(", ")
                 : "None"}{" "}
-              {JSON.stringify(dragAnswers[q.id]) ===
-              JSON.stringify(q.correctAnswers) ? (
+              {haveSameItems(dragAnswers[q.id], q.correctAnswers) ? (
                 <IoCheckmarkCircle className="text-green-600 text-xl" />
               ) : (
                 <IoCloseCircle className="text-red-600 text-xl" />
