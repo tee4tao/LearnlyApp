@@ -51,7 +51,13 @@ const SectionB = ({
               transition={{ duration: 0.3, delay: index / 10 }}
               key={item}
               draggable
-              onDragStart={(e) => onDragStart(e, item, "outside")}
+              onDragStart={(e) =>
+                onDragStart(
+                  e as unknown as React.DragEvent<HTMLDivElement>,
+                  item,
+                  "outside"
+                )
+              }
               className="cursor-move bg-purple-100 text-purple-700 px-3 py-1 rounded"
             >
               {item}

@@ -122,11 +122,13 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
       }, 1000);
       return () => clearInterval(countdown);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, timer]);
 
   // Persist state
   useEffect(() => {
     saveQuizStateToLocalStorage(quizState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quizState]);
 
   // Navigation and state functions
@@ -225,6 +227,7 @@ const Page = ({ params }: { params: Promise<{ subject: string }> }) => {
   ) => {
     e.preventDefault();
     const item = e.dataTransfer.getData("text/plain");
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const origin = e.dataTransfer.getData("origin") as "outside" | "basket";
     setQuizState((prev) => {
       const currentBasket = prev.dragAnswers[questionId] || [];

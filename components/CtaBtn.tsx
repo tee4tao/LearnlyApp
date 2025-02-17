@@ -7,7 +7,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { departments } from "@/constant";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 const CtaBtn = () => {
@@ -16,7 +16,7 @@ const CtaBtn = () => {
     <Dialog>
       <DialogTrigger asChild>
         <button className="relative intouch-btn max-sm:text-sm text-white max-sm:w-32 max-sm:h-9 w-48 h-11 capitalize bg-transparent border border-purple-700 hover:text-black rounded-lg">
-          start leaning
+          start learning
         </button>
       </DialogTrigger>
       <DialogContent
